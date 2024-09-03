@@ -1,0 +1,318 @@
+@import '../../../../constants/styling/theme/variables.scss';
+.cardContainer {
+  width: 47.5%;
+  max-width: 47.5%;
+  border-radius: 6px;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 10px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  @media screen and (max-width: 1130px) {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    margin: 10px 0;
+    background-image: linear-gradient(to right, transparent, #e7e7e7, transparent);
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+
+    .imageContainer {
+      width: 250px;
+      height: 150px;
+      background-color: #e7e7e7;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+
+      & > img {
+        width: 100%;
+
+      }
+
+      .zoomShadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #0000007a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        cursor: pointer;
+        left: 0;
+      }
+    }
+    
+    .text {
+      width: 50%;
+      padding-left: 10px;
+
+      .usedTechnologies {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        margin-bottom: 15px;
+        overflow-x: auto;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        scrollbar-width: none;
+        -webkit-mask: linear-gradient(
+          90deg,
+          transparent,
+          white 0%,
+          white 80%,
+          transparent
+        );
+
+        mask: linear-gradient(
+          180deg,
+          transparent,
+          white 0%,
+          white 80%,
+          transparent
+        );
+
+        &::-webkit-scrollbar{
+          display: none;
+        }
+
+        .card {
+          width: fit-content;
+          background: #e7e7e7;
+          border-radius: 5px;
+          padding: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          & > p {
+            font-size: 10px;
+            color: #7a7a7a;
+            font-family: $tertiary-font;
+            white-space: nowrap;
+          }
+
+          .image {
+            background-color: #fff;
+            border-radius: 2.5px;
+            padding: 2px;
+          }
+        }
+
+        .error {
+          font-size: 14px;
+          color: #7a7a7a;
+          font-family: $tertiary-font;
+        }
+      }
+    }
+  }
+
+  .textAndInfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .ownerCard {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .avatar {
+        width: 100%;
+        margin-right: 10px;
+      }
+
+      .ownerInfo {
+        margin-left: 7px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .name {
+          font-size: 14px;
+          color: #7a7a7a;
+          white-space: nowrap;
+          margin-right: 7px;
+          height: fit-content;
+          font-family: $secondary-font;
+        }
+
+        .header {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .card {
+            width: fit-content;
+            background: #e7e7e7;
+            border-radius: 10px;
+            padding: 0 5px;
+            margin-right: 5px;
+
+            @media screen and (max-width: 520px) {
+              display: none;
+            }
+            
+            & > p {
+              font-size: 10px;
+              color: #7a7a7a;
+              font-family: $tertiary-font;
+            }
+          }
+
+          .subheader {
+            font-size: 14px;
+            color: #7a7a7a;
+            font-family: $tertiary-font;
+
+            @media screen and (max-width: 400px) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .subtitles2 {
+      font-size: 12px;
+      color: $primary-color-alt;
+      font-family: $secondary-font;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .headerDescriptionResponsive {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .card {
+        width: fit-content;
+        background: #e7e7e7;
+        border-radius: 10px;
+        padding: 0 5px;
+        margin-right: 5px;
+        
+        & > p {
+          font-size: 10px;
+          color: #7a7a7a;
+          font-family: $tertiary-font;
+        }
+      }
+
+      .subheader {
+        font-size: 14px;
+        color: #7a7a7a;
+        font-family: $tertiary-font;
+      }
+    }
+
+    .descriptionContainer {
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      min-height: 100px;
+      max-height: 250px;
+      margin-bottom: 20px;
+      padding-right: 5px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Establece el color de fondo de la barra de desplazamiento */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Establece el color de la manija de la barra de desplazamiento */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Cambia el color de la manija de la barra de desplazamiento al pasar el mouse */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .description {
+        font-size: 14;
+        color: #7a7a7a;
+        text-align: left;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .genericButton {
+      font-family: $primary-font;
+      color: #000;
+      background: transparent;
+      outline: none;
+      border: none;
+      font-size: 12px;
+      text-decoration: none;
+      border: 0.5px solid transparent;
+      border-radius: 7px;
+      padding: 7px;
+      cursor: pointer;
+      margin-left: auto;
+      border: 0.5px solid #fafafa31;
+      background-image: linear-gradient(
+        to right bottom,
+        transparent,
+        #e7e7e7,
+        #e7e7e7,
+        transparent
+      );
+      &:hover {
+        transition: all ease 500ms;
+        border: 0.5px solid #fafafa31;
+        background-image: linear-gradient(
+          to right bottom,
+          transparent,
+          #7a7a7a7a,
+          #7a7a7a7a,
+          transparent
+        );
+        p {
+          font-size: 14px;
+          color: #fafafa;
+        }
+      }
+    }
+  }
+}

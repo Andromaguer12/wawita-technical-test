@@ -1,0 +1,283 @@
+@import '../../../../constants/styling/theme/variables.scss';
+
+.contactFormContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e7e7e7;
+  padding: 0;
+
+  .maxContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    max-width: $max-width-layout;
+
+    @media screen and (max-width: 655px) {
+      flex-direction: column;
+    }
+
+    .sectionTitle {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .title {
+        font-size: 45px;
+        color: $secondary-text-color;
+        font-family: $secondary-font;
+        text-align: center;
+
+        @media screen and (max-width: 855px) {
+          font-size: 30px;
+        }
+      }
+
+      .section {
+        font-size: 12px;
+        font-family: $secondary-font;
+        color: #7a7a7a;
+        @media screen and (max-width: 655px) {
+          margin-top: 24px;
+        }
+      }
+
+      @media screen and (max-width: 655px) {
+        flex-direction: column;
+      }
+    }
+
+    .text {
+      font-size: 14px;
+      font-family: $tertiary-font;
+      color: #7a7a7a;
+      margin-bottom: 15px;
+    }
+
+    .subText {
+      font-size: 12px;
+      font-family: $tertiary-font;
+      color: #b8b8b8;
+      margin-bottom: 24px;
+    }
+
+    .contactFormAndInfo {
+      width: 100%;
+      height: 560px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+
+      @media screen and (max-width: 880px) {
+        flex-direction: column;
+        height: fit-content;
+      }
+
+      .formContainer {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @media screen and (max-width: 880px) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .formLabel {
+          width: 100%;
+          font-family: $tertiary-font;
+          color: $primary-color-alt;
+          font-size: 14px;
+          font-weight: 800;
+          padding-left: 10px;
+          margin-bottom: 5px;
+          box-sizing: border-box;
+        }
+
+        .textFields {
+          margin-bottom: 20px;
+        }
+
+        .messageSubjects {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+
+        .button {
+          width: 250px;
+          padding: 10px;
+          border: 0.5px solid #fafafa31;
+          color: #fff;
+          background-image: linear-gradient(
+            to right bottom,
+            $primary-color-alt-transparent,
+            $primary-color-alt-transparent-2,
+            $primary-color-alt-transparent-2,
+            $primary-color-alt-transparent
+          );
+
+          @media screen and (max-width: 500px) {
+            width: 100%;
+          }
+        }
+      }
+
+      .infoContainer {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-radius: 20px;
+        padding: 30px;
+        box-sizing: border-box;
+        box-shadow: 0 0.5rem 1rem -0.25rem #5c5c5c;
+        background-image: linear-gradient(
+          to top right,
+          $secondary-color,
+          $black
+        );
+
+        @media screen and (max-width: 880px) {
+          width: 100%;
+        }
+
+        .socialMediaGrid {
+          width: 100%;
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .infos {
+          width: 100%;
+
+          .listItems {
+            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 0;
+            border-radius: 6px;
+            padding: 7.5px 10px;
+            box-sizing: border-box;
+            border: 0.5px solid transparent;
+            font-family: $tertiary-font;
+            & > div {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: flex-start;
+            }
+
+            .copyButton {
+              cursor: pointer;
+            }
+
+            &:hover {
+              transition: all ease 500ms;
+              border: 0.5px solid #fafafa31;
+              background-image: linear-gradient(
+                to right bottom,
+                $primary-color-alt-transparent,
+                $primary-color-alt-transparent-2,
+                $primary-color-alt-transparent-2,
+                $primary-color-alt-transparent
+              );
+              p {
+                font-size: 14px;
+                color: #fafafa;
+              }
+            }
+
+            @media screen and (max-width: 900px) {
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+
+          .downloadCV {
+            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 0;
+            border-radius: 6px;
+            padding: 7.5px 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+            border: 0.5px solid #fafafa31;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-image: linear-gradient(
+              to right bottom,
+              transparent,
+              #7a7a7a,
+              #7a7a7a,
+              transparent
+            );
+            p {
+              font-size: 14px;
+              color: #fafafa;
+            }
+
+            .label {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .horizontalDivider {
+    width: 100%;
+    max-width: $max-width-layout;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #e7e7e7,
+      transparent
+    );
+  }
+
+  padding-bottom: 50px;
+}

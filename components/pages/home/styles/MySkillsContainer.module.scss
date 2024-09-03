@@ -1,0 +1,82 @@
+@import '../../../../constants/styling/theme/variables.scss';
+
+.mySkillsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  padding: 0;
+
+  .maxContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    max-width: $max-width-layout;
+
+    @media screen and (max-width: 655px) {
+      flex-direction: column;
+    }
+
+    .sectionTitle {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .title {
+        font-size: 45px;
+        color: $secondary-text-color;
+        font-family: $secondary-font;
+        text-align: center;
+
+        @media screen and (max-width: 855px) {
+          font-size: 30px;
+        }
+      }
+
+      .section {
+        font-size: 12px;
+        font-family: $secondary-font;
+        color: #7a7a7a;
+        @media screen and (max-width: 655px) {
+          margin-top: 24px;
+        }
+      }
+
+      @media screen and (max-width: 655px) {
+        flex-direction: column;
+      }
+    }
+
+    .text {
+      font-size: 14px;
+      font-family: $tertiary-font;
+      color: #7a7a7a;
+      margin-bottom: 24px;
+    }
+  }
+
+  .horizontalDivider {
+    width: 100%;
+    max-width: $max-width-layout;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #e7e7e7,
+      transparent
+    );
+  }
+
+  padding-bottom: 50px;
+}

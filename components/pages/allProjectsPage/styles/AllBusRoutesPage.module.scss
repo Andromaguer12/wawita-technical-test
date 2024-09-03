@@ -1,0 +1,558 @@
+@import '../../../../constants/styling/theme/variables.scss';
+
+.projectPageContainer {
+  width: 100%;
+  padding: 0 20px;
+  height: 90vh;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask: linear-gradient(
+    180deg,
+    transparent,
+    white 5%,
+    white 95%,
+    transparent
+  );
+
+  mask: linear-gradient(
+    180deg,
+    transparent,
+    white 5%,
+    white 95%,
+    transparent
+  );
+
+  @media screen and (max-width: 855px) {
+    padding: 0;
+  }
+
+
+  .shadow{
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #00000081;
+    position: absolute;
+    top: 0;
+    // backdrop-filter: blur(2px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      font-size: 80px;
+      color: $primary-color;
+      text-align: center;
+      font-family: $primary-font;
+      margin-bottom: 20px;
+      font-weight: 800;
+      text-shadow: 1px 1px 10px black;
+
+      @media screen and (max-width: 855px) {
+        font-size: 55px;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      @media screen and (max-width: 755px) {
+        font-size: 45px;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.backgroundComp {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+
+  .myImage {
+    position: absolute;
+    bottom: 0;
+    left: -310px;
+    width: 60vw;
+    height: auto;
+    opacity: 0.1;
+
+    @media screen and (max-width: 1200px) {
+      width: 50vw;
+    }
+
+    @media screen and (max-width: 700px) {
+      width: 75vw;
+    }
+  }
+
+  .backgroundProgrammingImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    animation: moving 17s ease-in-out infinite;
+    opacity: 0.5;
+    height: 100%;
+    filter: grayscale(100%);
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+  }
+
+  @keyframes moving {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-50px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .elemento {
+    animation: moving 2s infinite;
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: auto;
+    animation: moving2 30s ease-in-out infinite;
+    filter: grayscale(100%);
+  }
+
+  @keyframes moving2 {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+
+.error {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.paralaxParentContainer {
+  
+  .paralaxContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease; 
+  }
+}
+
+
+.parentContainer {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  transition: all 1s ease;
+  box-sizing: border-box;
+
+  .maxContainer {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $max-width-layout;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-image: linear-gradient(to right, transparent, #e7e7e7, transparent);
+    }
+
+    .divider2 {
+      width: 100%;
+      height: 1px;
+      background-image: linear-gradient(to right, transparent, #e7e7e7, #b8b8b8, #e7e7e7, transparent);
+    }
+
+    .mixedProjectsContainer {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding-top: 30px;
+      box-sizing: border-box;
+
+      .sectionTitle {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+          font-size: 45px;
+          color: $secondary-text-color;
+          font-family: $secondary-font;
+          margin-bottom: 20px;
+
+          @media screen and (max-width: 855px) {
+            font-size: 35px;
+            text-align: left;
+          }
+
+          @media screen and (max-width: 755px) {
+            font-size: 30px;
+            text-align: left;
+          }
+        }
+
+        .section {
+          font-size: 12px;
+          font-family: $secondary-font;
+          color: #7a7a7a;
+          @media screen and (max-width: 855px) {
+            text-align: right;
+          }
+        }
+
+        @media screen and (max-width: 855px) {
+        }
+      }
+
+      .text {
+        font-size: 14px;
+        font-family: $tertiary-font;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+      }
+    }
+
+    .cardsContainer {
+      width: 100%;
+      display: flex; 
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .searchInputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      margin-top: 20px;
+
+      @media screen and (max-width: 880px) {
+        flex-direction: column;
+        height: fit-content;
+      }
+
+      .button {
+        width: 150px;
+        padding: 10px;
+        border: 0.5px solid #fafafa31;
+        color: #fff;
+        margin-top: 20.89px;
+        height: 58.88px;
+        background-image: linear-gradient(
+          to right bottom,
+          $primary-color-alt-transparent,
+          $primary-color-alt-transparent-2,
+          $primary-color-alt-transparent-2,
+          $primary-color-alt-transparent
+        );
+
+        @media screen and (max-width: 750px) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+      .formContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .filtersHeader{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          
+          @media screen and (max-width: 750px) {
+            flex-direction: column;
+          }
+
+          .input {
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+
+            @media screen and (max-width: 750px) {
+              width: 100%;
+            }
+          }
+        }
+
+        .filters {
+          width: 100%;
+          display: flex;
+          flex-flow: row wrap;
+          align-items: flex-start;
+          justify-content: space-between;
+
+          @media screen and (max-width: 600px) {
+            display: none;
+          }
+
+          .list{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 200px;
+            margin-bottom: 20px;
+
+            @media screen and (max-width: 750px) {
+              width: 100%;
+            }
+
+            .title {
+              font-weight: 600;
+              font-family: $primary-font;
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+
+            .listOfCheckboxes{
+              padding: 10px 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              width: 100%;
+              max-height: 200px;
+              overflow: auto;
+              overflow-x: hidden;
+              &::-webkit-scrollbar {
+                width: 5px;
+              };
+              &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+              }
+              &::-webkit-scrollbar-thumb {
+                background: #888;
+              }
+              &::-webkit-scrollbar-thumb:hover {
+                background: #555,
+              }
+            }
+          }
+
+          .timeFilters {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 280px;
+
+            .title {
+              font-weight: 600;
+              font-family: $primary-font;
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+
+            .fromTo{
+              width: 100%;
+              margin-top: 10px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+            }
+          }
+        }
+
+        .filtersResponsive {
+          width: 100%;
+          display: none;
+          
+          @media screen and (max-width: 600px) {
+            display: block;
+          }
+
+          .collapsesTextTitles{
+            .title {
+              font-weight: 600;
+              font-family: $primary-font;
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+
+        @media screen and (max-width: 880px) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .formLabel {
+          width: 100%;
+          font-family: $tertiary-font;
+          color: $primary-color-alt;
+          font-size: 14px;
+          font-weight: 800;
+          margin-bottom: 5px;
+          box-sizing: border-box;
+          
+        }
+
+        .textFields {
+          margin-bottom: 20px;
+        }
+
+        .messageSubjects {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+      }
+
+      .infoContainer {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-radius: 20px;
+        padding: 30px;
+        box-sizing: border-box;
+        box-shadow: 0 0.5rem 1rem -0.25rem #5c5c5c;
+        background-image: linear-gradient(
+          to top right,
+          $secondary-color,
+          $black
+        );
+
+        @media screen and (max-width: 880px) {
+          width: 100%;
+        }
+
+        .socialMediaGrid {
+          width: 100%;
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .infos {
+          width: 100%;
+
+          .listItems {
+            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 0;
+            border-radius: 6px;
+            padding: 7.5px 10px;
+            box-sizing: border-box;
+            border: 0.5px solid transparent;
+            font-family: $tertiary-font;
+            & > div {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: flex-start;
+            }
+
+            .copyButton {
+              cursor: pointer;
+            }
+
+            &:hover {
+              transition: all ease 500ms;
+              border: 0.5px solid #fafafa31;
+              background-image: linear-gradient(
+                to right bottom,
+                $primary-color-alt-transparent,
+                $primary-color-alt-transparent-2,
+                $primary-color-alt-transparent-2,
+                $primary-color-alt-transparent
+              );
+              p {
+                font-size: 14px;
+                color: #fafafa;
+              }
+            }
+
+            @media screen and (max-width: 900px) {
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
