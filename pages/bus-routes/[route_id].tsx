@@ -1,20 +1,20 @@
 import Head from 'next/head';
 import React from 'react';
 import useTranslation from '../../hooks/translation/useTranslation';
-import ProjectPage from '../../components/pages/projectPage/components/ProjectPage';
+import BusRoutePage from '../../components/pages/busroutePage/components/BusRoutePage';
 import { useRouter } from 'next/router';
 
 export default function AboutMeView() {
   const { getTitle } = useTranslation();
-  const { project_id } = useRouter().query;
+  const { route_id } = useRouter().query;
 
   return (
     <>
       <Head>
         <link rel="icon" href="/icolawawita.ico" />
-        <title>{getTitle('PROJECTPAGE')}</title>
+        <title>{getTitle('BUS_ROUTE_PAGE')}</title>
       </Head>
-      <ProjectPage projectId={project_id as string} />
+      <BusRoutePage busrouteId={route_id as string} />
     </>
   );
 }

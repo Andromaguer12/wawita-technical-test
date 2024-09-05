@@ -10,7 +10,7 @@ export default function useTranslation(): HookReturnedValues {
   const { formatMessage } = useIntl();
 
   const t = (translation: string) => {
-    return formatMessage({ id: translation });
+    return formatMessage({ id: translation ?? "" });
   };
 
   const getTitle = (translation: string): string => {

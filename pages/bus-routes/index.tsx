@@ -1,5 +1,5 @@
 import React from 'react';
-import AllProjectsPage from '../../components/pages/allProjectsPage/components/AllBusRoutesPage';
+import AllProjectsPage from '../../components/pages/allBusRoutesPage/components/AllBusRoutesPage';
 import Head from 'next/head';
 import useTranslation from '../../hooks/translation/useTranslation';
 

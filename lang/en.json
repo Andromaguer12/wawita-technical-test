@@ -1,1 +1,17 @@
-{}
+{
+  "pages.home.landingText1": "Welcome to La Wawita!",
+  "pages.home.landingText2": "Your most safiest and trustrable transport service",
+  "pages.home.landingNotes": "With the best market prices!",
+  "pages.home.seeRoutes": "Know our most popular routes!",
+  "pages.header.bus-routes": "Bus Routes",
+  "pages.projectPage.backToHome": "Back to Home",
+  "pages.busroutes.results": "Most popular routes",
+  "footer.copyright": "Andres Carrasquero | Technical Test",
+  "pages.busroutePage.map": "Map",
+  "pages.busroutePage.busrouteInfo": "Route information",
+  "pages.busroutePage.schedule": "Schedule",
+  "notBusesAssigned": "Not buses assigned",
+  "price": "Price",
+  "startTime": "Start Time",
+  "arriveTime": "Arrive Time"
+}

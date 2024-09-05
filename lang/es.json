@@ -1,1 +1,17 @@
-{}
+{
+  "pages.home.landingText1": "Bienvenido a La Wawita!",
+  "pages.home.landingText2": "Tu transporte seguro y confiable",
+  "pages.home.landingNotes": "Con los mejores precios del mercado!",
+  "pages.home.seeRoutes": "Conoce nuestras rutas mas populares",
+  "pages.header.bus-routes": "Rutas de autobuses",
+  "pages.projectPage.backToHome": "Volver al inicio",
+  "pages.busroutes.results": "Rutas mas populares",
+  "footer.copyright": "Andres Carrasquero | Prueba Tecnica",
+  "pages.busroutePage.map": "Mapa",
+  "pages.busroutePage.busrouteInfo": "Información de la ruta",
+  "pages.busroutePage.schedule": "Horarios",
+  "notBusesAssigned": "Sin bus asignado",
+  "price": "Precio",
+  "startTime": "Hora de salida",
+  "arriveTime": "Hora de llegada"
+}

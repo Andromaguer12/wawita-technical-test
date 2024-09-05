@@ -1,35 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import {
-  AboutMeCard,
-  AboutMeCardImage
-} from '../../../../../typesDefs/constants/app/about-us/about-us.types';
+import { BusRoute } from '../../../../../types/routes';
 
 type initialStateType = {
   loading: boolean;
-  data: AboutMeCard[];
+  data: BusRoute[];
   pageInfo: any;
   error: string;
   getSpecificBusRoute: {
     loadingSpecificBusRoute: boolean;
-    busrouteData?: AboutMeCard;
+    busrouteData?: BusRoute;
     errorSpecificBusRoute: string;
-  };
-  getBusRoutePhotos: {
-    loadingPhotos: boolean;
-    busroutePhotos?: AboutMeCardImage[];
-    errorBusRoutePhotos: string;
-  };
-  getSimilarBusRoutes: {
-    loadingSimilar: boolean;
-    busrouteSimilar: AboutMeCard[];
-    pageInfo: any;
-    errorBusRouteSimilar: string;
-  };
-  best: {
-    loading: boolean;
-    data: AboutMeCard[];
-    error: any | null;
   };
 };
 
@@ -42,22 +23,6 @@ const initialState: initialStateType = {
     loadingSpecificBusRoute: false,
     busrouteData: undefined,
     errorSpecificBusRoute: ''
-  },
-  getBusRoutePhotos: {
-    loadingPhotos: false,
-    busroutePhotos: undefined,
-    errorBusRoutePhotos: ''
-  },
-  getSimilarBusRoutes: {
-    loadingSimilar: false,
-    busrouteSimilar: [],
-    pageInfo: null,
-    errorBusRouteSimilar: ''
-  },
-  best: {
-    loading: false,
-    data: [],
-    error: ''
   }
 };
 
@@ -68,48 +33,13 @@ const initialState: initialStateType = {
 export const getAllBusRoutes = createAsyncThunk(
   'home/getAllBusRoutes',
   async (params: any, { rejectWithValue }) => {
-    const query = await params.context.getAllBusRoutes(params?.filters);
+    const query = await params.context.getRoutes(params?.filters);
     const response = await query.json();
     if (query.status > 202) {
       return rejectWithValue(response?.message);
     }
-    return response;
-  }
-);
 
-export const getBestBusRoutes = createAsyncThunk(
-  'home/getBestBusRoutes',
-  async (params: any, { rejectWithValue }) => {
-    const query = await params.context.getBestBusRoutes(params?.filters);
-    const response = await query.json();
-    if (query.status > 202) {
-      return rejectWithValue(response?.message);
-    }
-    return response;
-  }
-);
-
-export const getSimilarBusRoutes = createAsyncThunk(
-  'home/getSimilarBusRoutes',
-  async (params: any, { rejectWithValue }) => {
-    const query = await params.context.getSimilarBusRoutes(params?.filters);
-    const response = await query.json();
-    if (query.status > 202) {
-      return rejectWithValue(response?.message);
-    }
-    return response;
-  }
-);
-
-export const getAllBusRoutesPhotos = createAsyncThunk(
-  'home/getAllBusRoutesPhotos',
-  async (params: any, { rejectWithValue }) => {
-    const query = await params.context.getAllBusRoutesPhotos();
-    const response = await query.json();
-    if (query.status > 202) {
-      return rejectWithValue(response?.message);
-    }
-    return response;
+    return response.data.routes;
   }
 );
 
@@ -121,7 +51,7 @@ export const getBusRouteById = createAsyncThunk(
     if (query.status > 202) {
       return rejectWithValue(response?.message);
     }
-    return response;
+    return response.data.getRouteById;
   }
 );
 
@@ -144,29 +74,13 @@ const busroutesSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getAllBusRoutes.fulfilled, (state, action) => {
-      const { busroutes, ...rest } = action.payload;
-
       state.loading = false;
-      state.data = busroutes;
-      state.pageInfo = rest;
+      state.data = action.payload;
       state.error = '';
     });
     builder.addCase(getAllBusRoutes.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
-    });
-
-    builder.addCase(getBestBusRoutes.pending, (state) => {
-      state.best.loading = true;
-    });
-    builder.addCase(getBestBusRoutes.fulfilled, (state, action) => {
-      state.best.loading = false;
-      state.best.data = action.payload;
-      state.best.error = '';
-    });
-    builder.addCase(getBestBusRoutes.rejected, (state, action) => {
-      state.best.loading = false;
-      state.best.error = action.payload as string;
     });
 
     builder.addCase(getBusRouteById.pending, (state) => {
@@ -181,35 +95,6 @@ const busroutesSlice = createSlice({
       state.getSpecificBusRoute.loadingSpecificBusRoute = false;
       state.getSpecificBusRoute.errorSpecificBusRoute =
         action.payload as string;
-    });
-
-    builder.addCase(getAllBusRoutesPhotos.pending, (state) => {
-      state.getBusRoutePhotos.loadingPhotos = true;
-    });
-    builder.addCase(getAllBusRoutesPhotos.fulfilled, (state, action) => {
-      state.getBusRoutePhotos.loadingPhotos = false;
-      state.getBusRoutePhotos.busroutePhotos = action.payload;
-      state.getBusRoutePhotos.errorBusRoutePhotos = '';
-    });
-    builder.addCase(getAllBusRoutesPhotos.rejected, (state, action) => {
-      state.getBusRoutePhotos.loadingPhotos = false;
-      state.getBusRoutePhotos.errorBusRoutePhotos = action.payload as string;
-    });
-
-    builder.addCase(getSimilarBusRoutes.pending, (state) => {
-      state.getSimilarBusRoutes.loadingSimilar = true;
-    });
-    builder.addCase(getSimilarBusRoutes.fulfilled, (state, action) => {
-      const { busroutes, ...rest } = action.payload;
-
-      state.getSimilarBusRoutes.loadingSimilar = false;
-      state.getSimilarBusRoutes.busrouteSimilar = busroutes;
-      state.getSimilarBusRoutes.pageInfo = rest;
-      state.getSimilarBusRoutes.errorBusRouteSimilar = '';
-    });
-    builder.addCase(getSimilarBusRoutes.rejected, (state, action) => {
-      state.getSimilarBusRoutes.loadingSimilar = false;
-      state.getSimilarBusRoutes.errorBusRouteSimilar = action.payload as string;
     });
   }
 });

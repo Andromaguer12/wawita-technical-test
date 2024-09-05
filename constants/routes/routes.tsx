@@ -3,7 +3,7 @@ import { RoutesClassification } from '../../typesDefs/constants/routes/types';
 
 export const RoutesHeadTitles = {
   HOME: 'home',
-  BUS_ROUTE_PAGE: 'project',
+  BUS_ROUTE_PAGE: 'bus-route',
   ALL_BUS_ROUTES: 'all-bus-routes'
 };
 export const AllRoutes = {

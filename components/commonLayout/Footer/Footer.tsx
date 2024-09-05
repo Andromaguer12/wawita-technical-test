@@ -17,8 +17,6 @@ export default function Footer() {
         <div className={styles.lines} />
         <div className={styles.lines} />
         <div className={styles.lines} />
-        <div className={styles.lines} />
-        <div className={styles.lines} />
       </div>
     </div>
   );

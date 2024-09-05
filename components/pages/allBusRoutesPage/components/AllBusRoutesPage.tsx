@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from '../styles/AllBusRoutesPage.module.scss'
 import { getAllBusRoutes, getAllBusRoutesPhotos } from '../../../../services/redux/reducers/home/bus-routes/actions';
 import { useAppDispatch, useAppSelector } from '../../../../services/redux/store';
@@ -20,8 +20,7 @@ const AllBusRoutesPage = () => {
   useEffect(() => {
     dispatch(getAllBusRoutes({ context: fContext }))
     dispatch(getAllBusRoutesPhotos({ context: fContext }))
-  }, [])
-  
+  }, [])  
 
   return (
     <>

@@ -41,8 +41,8 @@ export default function Home() {
       <div className={styles.homeContainer}>
         <div className={styles.content}>
           <div className={styles.landingTextsContainers}>
-            <p className={styles.title}>{t('pages.home.landingText')}</p>
-            <p className={styles.text}>{t('pages.home.landingText')}</p>
+            <p className={styles.title}>{t('pages.home.landingText1')}</p>
+            <p className={styles.text}>{t('pages.home.landingText2')}</p>
             <p className={styles.note}>{t('pages.home.landingNotes')}</p>
             <div className={styles.landingButtons}>
               <Button
