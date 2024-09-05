@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/AllBusRoutesCard.module.scss'
 import { Skeleton, Typography } from '@mui/material'
 import { useStyles } from '../../home/styles/sxProjectCardStyles';
@@ -9,6 +9,8 @@ import { AirportShuttle } from '@mui/icons-material';
 import { formatCurrency } from '../../../../utils/helpers/format-currency';
 import { AllRoutes } from '../../../../constants/routes/routes';
 import { useRouter } from 'next/router';
+import { useAppSelector } from '../../../../services/redux/store';
+import { Bus } from '../../../../types/buses';
 
 interface AllBusRoutesCardProps {
   card?: BusRoute,
@@ -19,6 +21,11 @@ const AllBusRoutesCard = ({ card, skeletonMode }: AllBusRoutesCardProps) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const router = useRouter();
+  const [currentBus, setcurrentBus] = useState<Bus | null>(null)
+
+  const { 
+    getBuses: { data }
+  } = useAppSelector((d) => d.busroutes)
 
   if(skeletonMode) {
     return (
@@ -131,8 +138,18 @@ const AllBusRoutesCard = ({ card, skeletonMode }: AllBusRoutesCardProps) => {
   }
 
   const handleNavigate =  () => {
-    router.push(AllRoutes.BUS_ROUTE.replace(":id", card?.id));
+    router.push(AllRoutes.BUS_ROUTE.replace(":id", card?.id ?? ""));
   }
+
+  const getBus = () => {
+    const  bus = data.find(d => d.routeId == card?.id)
+    if(bus) setcurrentBus(bus)
+    return bus
+  }
+
+  useEffect(() => {
+    getBus();
+  }, [])
 
   return (
     <div className={styles.cardContainer} onClick={handleNavigate}>
@@ -177,7 +194,7 @@ const AllBusRoutesCard = ({ card, skeletonMode }: AllBusRoutesCardProps) => {
         <div className={styles.data}>
           <Typography className={styles.bus}>
             <AirportShuttle />
-            {card?.buses?.[0]?.model ? `${card?.buses?.[0]?.model} - ${card?.buses?.[0]?.plate}` : t('notBusAssigned')}
+            {currentBus ? t('1bustaking') : t('notBusesAssigned')}
           </Typography>
           <Typography className={styles.price}>
             {formatCurrency(card?.price as number)}

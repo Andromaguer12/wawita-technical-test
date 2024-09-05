@@ -9,9 +9,14 @@ export default function DashboardHome({
   showHeader,
   showFooter
 }: ComponentProps<any>) {
+
+  function getRandomZeroOrOne(): 0 | 1 {
+    return Math.random() < 0.5 ? 0 : 1;
+  }
+  
   return (
     <>
-      <div className={styles.dashboard}> 
+      <div className={getRandomZeroOrOne() ? styles.dashboard2 : styles.dashboard}> 
         {showHeader && <Header />}
         <div className={styles.dashboardComponent}>{children}</div>
       </div>

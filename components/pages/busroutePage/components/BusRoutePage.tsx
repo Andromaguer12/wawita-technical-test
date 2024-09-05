@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/BusRoutePage.module.scss';
 import {
   useAppDispatch,
@@ -8,11 +8,12 @@ import {
 import useFetchingContext from '../../../../contexts/backendConection/hook';
 import { Skeleton, Typography } from '@mui/material';
 import useTranslation from '../../../../hooks/translation/useTranslation';
-import { getBusRouteById } from '../../../../services/redux/reducers/home/bus-routes/actions';
+import { getAllBuses, getBusRouteById } from '../../../../services/redux/reducers/home/bus-routes/actions';
 import { AirportShuttle } from '@mui/icons-material';
 import { format } from 'date-fns';
 import { formatCurrency } from '../../../../utils/helpers/format-currency';
 import MapWithRoute from '../../../commonLayout/MapWithRoute/MapWithRoute';
+import { Bus } from '../../../../types/buses';
 
 interface BusRoutePageProps {
   busrouteId: string;
@@ -22,6 +23,7 @@ const BusRoutePage = ({ busrouteId }: BusRoutePageProps) => {
   const dispatch = useAppDispatch();
   const fContext = useFetchingContext();
   const { t } = useTranslation();
+  const [currentBus, setcurrentBus] = useState<Bus | null>(null)
 
   const {
     getSpecificBusRoute: {
@@ -29,6 +31,7 @@ const BusRoutePage = ({ busrouteId }: BusRoutePageProps) => {
       busrouteData,
       errorSpecificBusRoute
     },
+    getBuses: {data }
   } = useAppSelector(({ busroutes }) => busroutes);
 
   useEffect(() => {
@@ -39,8 +42,20 @@ const BusRoutePage = ({ busrouteId }: BusRoutePageProps) => {
           busrouteId
         })
       );
+      dispatch(getAllBuses({ context: fContext }))
     }
   }, [busrouteId]);
+
+  const getBus = () => {
+    const  bus = data.find(d => d.routeId == busrouteData?.id)
+    if(bus) setcurrentBus(bus)
+    return bus
+  }
+
+  useEffect(() => {
+    if(busrouteData?.id) getBus();
+  }, [busrouteData, data])
+  
   
   return (
     <>
@@ -226,7 +241,7 @@ const BusRoutePage = ({ busrouteId }: BusRoutePageProps) => {
                   sx={{ marginBottom: ' 30px' }}
                 >
                   <AirportShuttle />
-                  {busrouteData?.buses?.length ? `${busrouteData.buses[0].model} - ${busrouteData.buses[0].plate} - cap: ${busrouteData.buses[0].capacity}` : t('notBusesAssigned')}
+                  {currentBus ? `${currentBus.model} - ${currentBus.plate} - cap: ${currentBus.capacity}` : t('notBusesAssigned')}
                 </Typography>
                 <Typography className={styles.subtitles2}>
                   {t('pages.busroutePage.schedule')}

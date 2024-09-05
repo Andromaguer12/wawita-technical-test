@@ -1,7 +1,7 @@
 {
   "pages.home.landingText1": "Bienvenido a La Wawita!",
-  "pages.home.landingText2": "Tu transporte seguro y confiable",
-  "pages.home.landingNotes": "Con los mejores precios del mercado!",
+  "pages.home.landingText2": "El servicio de transporte más seguro y fiable, garantizando un viaje cómodo y seguro en cada trayecto. Nos comprometemos a brindarte un servicio de excelencia, con puntualidad y los más altos estándares de seguridad.",
+  "pages.home.landingNotes": "¡Con los mejores precios del mercado!",
   "pages.home.seeRoutes": "Conoce nuestras rutas mas populares",
   "pages.header.bus-routes": "Rutas de autobuses",
   "pages.projectPage.backToHome": "Volver al inicio",
@@ -13,5 +13,6 @@
   "notBusesAssigned": "Sin bus asignado",
   "price": "Precio",
   "startTime": "Hora de salida",
-  "arriveTime": "Hora de llegada"
+  "arriveTime": "Hora de llegada",
+  "1bustaking": "1 Bus tomando esta ruta"
 }

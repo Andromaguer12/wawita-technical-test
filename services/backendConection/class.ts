@@ -94,6 +94,30 @@ class BackendFetching {
 
     return response;
   }
+
+  async getAllBuses() {
+    const query = `
+      query {
+        buses {
+          id
+          model
+          plate
+          capacity
+          routeId
+        }
+      }
+    `;
+
+    const response = await this.httpCallable('')({
+      mode: 'cors',
+      method: 'POST',
+      body: JSON.stringify({
+        query
+      })
+    });
+
+    return response;
+  }
 }
 
 export default BackendFetching;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styles from '../styles/AllBusRoutesPage.module.scss'
-import { getAllBusRoutes, getAllBusRoutesPhotos } from '../../../../services/redux/reducers/home/bus-routes/actions';
+import { getAllBuses, getAllBusRoutes } from '../../../../services/redux/reducers/home/bus-routes/actions';
 import { useAppDispatch, useAppSelector } from '../../../../services/redux/store';
 import useFetchingContext from '../../../../contexts/backendConection/hook';
 import useTranslation from '../../../../hooks/translation/useTranslation';
@@ -16,15 +16,16 @@ const AllBusRoutesPage = () => {
  
   const { loading, data, error } = useAppSelector(({ busroutes }) => busroutes);
 
-
   useEffect(() => {
     dispatch(getAllBusRoutes({ context: fContext }))
-    dispatch(getAllBusRoutesPhotos({ context: fContext }))
+    dispatch(getAllBuses({ context: fContext }))
   }, [])  
 
   return (
     <>
-      
+      <div className={styles.projectPageContainer}>
+        
+      </div>
       <div className={styles.parentContainer}>
       <div className={styles.maxContainer}>
           <div className={styles.mixedProjectsContainer}>
@@ -44,7 +45,7 @@ const AllBusRoutesPage = () => {
             {!loading && data.length > 0 && (
               <div className={styles.cardsContainer}>
                 {data.map((card) => {
-                  return <AllBusRoutesCard key={card._id} card={card} />
+                  return <AllBusRoutesCard key={card.id} card={card} />
                 })}
               </div>
             )}
