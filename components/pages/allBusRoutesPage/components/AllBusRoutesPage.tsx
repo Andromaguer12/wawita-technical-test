@@ -24,7 +24,9 @@ const AllBusRoutesPage = () => {
   return (
     <>
       <div className={styles.projectPageContainer}>
-        
+        <p className={styles.title}>
+          {t('routes')}
+        </p>
       </div>
       <div className={styles.parentContainer}>
       <div className={styles.maxContainer}>

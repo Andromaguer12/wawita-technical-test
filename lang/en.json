@@ -14,5 +14,6 @@
   "price": "Price",
   "startTime": "Start Time",
   "arriveTime": "Arrive Time",
-  "1bustaking": "1 Bus Taking this route"
+  "1bustaking": "1 Bus Taking this route",
+  "routes": "All of our routes"
 }

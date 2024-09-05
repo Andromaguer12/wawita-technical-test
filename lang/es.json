@@ -14,5 +14,6 @@
   "price": "Precio",
   "startTime": "Hora de salida",
   "arriveTime": "Hora de llegada",
-  "1bustaking": "1 Bus tomando esta ruta"
+  "1bustaking": "1 Bus tomando esta ruta",
+  "routes": "Todas nuestras rutas"
 }
